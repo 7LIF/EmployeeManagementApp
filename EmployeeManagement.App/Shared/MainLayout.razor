@@ -1,22 +1,81 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="d-flex" id="wrapper">
+<!-- ======== sidebar-nav start =========== -->
+	<NavMenu />
+<!-- ======== sidebar-nav end =========== -->
 
-    <NavMenu />
 
-    <div id="page-content-wrapper">
+<!-- ======== main-wrapper start =========== -->
+	<main class="main-wrapper">
+		<!-- ========== header start ========== -->
+		<header class="header">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-5 col-md-5 col-6">
+						<div class="header-left d-flex align-items-center">
+							<div class="menu-toggle-btn mr-20">
+								<button id="menu-toggle" class="main-btn primary-btn btn-hover">
+									<i class="lni lni-chevron-left me-2"></i> Menu
+								</button>
+							</div>
+							<div class="header-search d-none d-md-flex">
+								<form action="#">
+									<input type="text" placeholder="Search..." />
+									<button><i class="lni lni-search-alt"></i></button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- ========== header end ========== -->
+		<!-- ========== section start ========== -->
+		<section class="section">
+			<div class="container-fluid">
+				<!-- ========== title-wrapper start ========== -->
+				<div class="title-wrapper pt-30">
+					<div class="row align-items-center">
+						<div class="col-md-6">
+							<div class="container-fluid">
+								@Body
+							</div>
+						</div>
+						<!-- end col -->
+					</div>
+					<!-- end row -->
+				</div>
+				<!-- ========== title-wrapper end ========== -->
+			</div>
+			<!-- end container -->
+		</section>
+		<!-- ========== section end ========== -->
+		<!-- ========== footer start =========== -->
+		<footer class="footer">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-6 order-last order-md-first">
+						<div class="copyright text-center text-md-start">
+							<p class="text-sm">
+								Designed and Developed by
+								<a href="https://plainadmin.com" rel="nofollow" target="_blank">PlainAdmin</a>
+							</p>
+						</div>
+					</div>
+					<!-- end col-->
+					<div class="col-md-6">
+						<div class="terms d-flex justify-content-center justify-content-md-end">
+							<a href="#0" class="text-sm">Term & Conditions</a>
+							<a href="#0" class="text-sm ml-15">Privacy & Policy</a>
+						</div>
+					</div>
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end container -->
+		</footer>
+		<!-- ========== footer end =========== -->
+	</main>
+	<!-- ======== main-wrapper end =========== -->
 
-        <nav class="navbar navbar-expand-lg navbar-light border-bottom">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <h3 class="title">Employee Management </h3>
-                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                </ul>
-            </div>
-        </nav>
 
-        <div class="container-fluid">
-            @Body
-        </div>
-    </div>
-
-</div>
