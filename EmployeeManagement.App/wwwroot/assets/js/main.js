@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
   /* ========= sidebar toggle ======== */
   const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
   const mainWrapper = document.querySelector(".main-wrapper");
@@ -31,4 +31,4 @@
     overlay.classList.remove("active");
     mainWrapper.classList.remove("active");
   });
-})();
+});

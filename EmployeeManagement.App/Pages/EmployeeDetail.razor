@@ -83,23 +83,6 @@
 				</div>
 
 				<div class="form-group row">
-					<label class="col-sm-4 col-form-label">Smoker</label>
-					<div class="col-sm-8">
-
-						@if (Employee.Smoker)
-						{
-							<label type="text" readonly class="form-control-plaintext">Yes</label>
-						}
-						else
-						{
-							<label type="text" readonly class="form-control-plaintext">No</label>
-
-						}
-
-					</div>
-				</div>
-
-				<div class="form-group row">
 					<label class="col-sm-4 col-form-label">Joined us</label>
 					<div class="col-sm-8">
 						<label type="text" readonly class="form-control-plaintext">@Employee.JoinedDate?.ToShortDateString()</label>
@@ -113,12 +96,6 @@
 					</div>
 				</div>
 
-			</div>
-			
-			<div class="col-xs-12 col-sm-4">
-				<div class="track-order-map">
-					<Map Zoom="10" Markers="MapMarkers"></Map>
-				</div>
 			</div>
 		</div>
 	</div>

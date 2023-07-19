@@ -1,4 +1,7 @@
-﻿<!-- ======== sidebar-nav start =========== -->
+﻿@inject IJSRuntime JSRuntime
+
+
+<!-- ======== sidebar-nav start =========== -->
 <aside class="sidebar-nav-wrapper">
 	<div class="navbar-logo">
 		<a href="index.html">
@@ -47,3 +50,21 @@
 </aside>
 <div class="overlay"></div>
 <!-- ======== sidebar-nav end =========== -->
+
+
+@code {
+	protected override async void OnAfterRender(bool firstRender)
+	{
+		if (firstRender)
+		{
+			// Cria um elemento <script> para carregar o main.js
+			var scriptElement = new MarkupString("<script src=\"main.js\"></script>");
+
+			// Aguarda um pequeno atraso antes de adicionar o script (opcional, se necessário)
+			await Task.Delay(1000);
+
+			// Adiciona o elemento <script> ao DOM
+			await JSRuntime.InvokeVoidAsync("eval", scriptElement);
+		}
+	}
+}

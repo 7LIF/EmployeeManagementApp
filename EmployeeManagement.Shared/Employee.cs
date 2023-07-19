@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Net.Http;
 using System.Runtime.InteropServices;
-
+using System.Text.Json;
 
 namespace EmployeeManagement.Shared
 {
@@ -47,9 +48,6 @@ namespace EmployeeManagement.Shared
 		public string PhoneNumber { get; set; }
 
 
-		public bool Smoker { get; set; }
-
-
 		public MaritalStatus MaritalStatus { get; set; }
 
 
@@ -72,9 +70,11 @@ namespace EmployeeManagement.Shared
 		//public JobCategory JobCategory { get; set; }
 
 
-		public double Latitude { get; set; }
+		public int OfficeId { get; set; }
+
+		public Office? Office { get; set; }
 
 
-		public double Longitude { get; set; }
+
 	}
 }

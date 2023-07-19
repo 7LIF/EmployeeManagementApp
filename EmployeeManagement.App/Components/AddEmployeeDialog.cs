@@ -11,7 +11,7 @@ namespace EmployeeManagement.App.Components
 {
 	public partial class AddEmployeeDialog
 	{
-		public Employee Employee { get; set; } = new Employee { CountryId = 1, JobCategoryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now, Street = "", Zip = "", City = "", PhoneNumber = "", Comment ="" };
+		public Employee Employee { get; set; } = new Employee { CountryId = 1, JobCategoryId = 1, OfficeId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now, Street = "", Zip = "", City = "", PhoneNumber = "", Comment ="" };
 
 
 		[Inject]
@@ -42,7 +42,7 @@ namespace EmployeeManagement.App.Components
 
 		private void ResetDialog()
 		{
-			Employee = new Employee { CountryId = 1, JobCategoryId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now, Street = "", Zip = "", City = "", PhoneNumber = "", Comment = "" };
+			Employee = new Employee { CountryId = 1, JobCategoryId = 1, OfficeId = 1, BirthDate = DateTime.Now, JoinedDate = DateTime.Now, Street = "", Zip = "", City = "", PhoneNumber = "", Comment = "" };
 		}
 
 
