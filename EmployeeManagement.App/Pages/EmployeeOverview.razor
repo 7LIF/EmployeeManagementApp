@@ -60,20 +60,26 @@
                                                 <p>@employee.Email</p>
                                             </td>
                                             <td class="min-width">
-                                                <span class="status-btn active-btn">Active</span>
+                                                <p>@employee.PhoneNumber</p>
                                             </td>
                                             <td>
-                                                <div class="action">
-                                                    <a class="text-danger" href="@($"employeedetail/{employee.EmployeeId}")">
-                                                        <i class="fas fa-info-circle"></i> &emsp;
-                                                    </a>
-                                                    <a class="text-danger" href="@($"employeeedit/{employee.EmployeeId}")">
-                                                        <i class="fas fa-edit"></i> &emsp;
-                                                    </a>
-                                                    <a class="text-danger" @onclick="() => DeleteEmployee(employee.EmployeeId)">
-                                                        <i class="lni lni-trash-can"></i>
-                                                    </a>
-                                                </div>
+                                                    <ul class="buttons-group-table">
+                                                    <li>
+                                                            <a href="@($"employeedetail/{employee.EmployeeId}")" class="main-btn primary-btn-outline rounded-full btn-hover btn-table">
+                                                            <i class="fas fa-info-circle"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                            <a href="@($"employeeedit/{employee.EmployeeId}")" class="main-btn primary-btn-outline rounded-full btn-hover btn-table">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                            <a @onclick="() => DeleteEmployee(employee.EmployeeId)" class="main-btn danger-btn-outline rounded-full btn-hover btn-table">
+                                                            <i class="lni lni-trash-can"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </td>
                                         </tr>
                                     }

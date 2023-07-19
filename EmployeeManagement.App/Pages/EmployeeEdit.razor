@@ -3,6 +3,7 @@
 
 
 @using EmployeeManagement.Shared
+@inject IJSRuntime JSRuntime
 
 
 <!-- ========== tab components start ========== -->
@@ -16,7 +17,14 @@
 				<div class="row align-items-center">
 					<div class="col-md-6">
 						<div class="title mb-30">
-							<h2>Details for @Employee.FirstName @Employee.LastName</h2>
+							@if (Employee.EmployeeId > 0)
+							{
+								<h2>Details for @Employee.FirstName @Employee.LastName</h2>
+							}
+							else
+							{
+								<h2>Add New Employee</h2>
+							}
 						</div>
 					</div>
 				</div>
@@ -27,20 +35,28 @@
 				<EditForm Model="@Employee" OnValidSubmit="@HandleValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
 
 					<DataAnnotationsValidator />
-					<ValidationSummary></ValidationSummary>
 
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="card-style mb-30">
+								@if (ClickSavedBtn)
+								{
+									<div class="alert-box danger-alert pl-100">
+										<div class="alert">
+											<p class="text-medium">
+												<ValidationSummary></ValidationSummary>
+											</p>
+										</div>
+									</div>
+								}
 								<div class="input-style-1">
 									<label for="lastName">Last Name</label>
 									<InputText id="lastName" type="text" @bind-Value="@Employee.LastName" placeholder="Enter last name"></InputText>
-									<ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.LastName)" />
+									
 								</div>
 								<div class="input-style-1">
 									<label>First Name</label>
 									<InputText id="firstName" type="text" @bind-Value="@Employee.FirstName" placeholder="Enter first name"></InputText>
-									<ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.FirstName)" />
 								</div>
 								<div class="input-style-1">
 									<label for="birthdate">Birthdate</label>
@@ -69,7 +85,6 @@
 								<div class="input-style-1">
 									<label for="email">Email</label>
 									<InputText id="email" type="email" class="form-control col-sm-8" @bind-Value="@Employee.Email" placeholder="your email address"></InputText>
-									<ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => Employee.Email)" />
 								</div>
 								<div class="input-style-1">
 									<label for="phonenumber">Phone Number</label>
@@ -97,15 +112,7 @@
 											}
 										</InputSelect>
 									</div>
-								</div>
-								<div class="input-style-1">
-									<label for="longitude">Longitude</label>
-									<InputNumber id="longitude" class="form-control col-sm-8" @bind-Value="@Employee.Longitude" placeholder="Enter longitude"></InputNumber>
-								</div>
-								<div class="input-style-1">
-									<label for="latitude">Latitude</label>
-									<InputNumber id="latitude" class="form-control col-sm-8" @bind-Value="@Employee.Latitude" placeholder="Enter latitude"></InputNumber>
-								</div>
+								</div>						
 								<div class="select-style-1">
 									<label for="jobcategory">Job Category</label>
 									<div class="select-position">
@@ -117,6 +124,19 @@
 										</InputSelect>
 									</div>
 								</div>
+
+								<div class="select-style-1">
+									<label for="office">Office</label>
+									<div class="select-position">
+										<InputSelect id="office" class="form-control col-sm-8" @bind-Value="@OfficeId">
+											@foreach (var office in Offices)
+											{
+												<option value="@office.OfficeId">@office.OfficeName</option>
+											}
+										</InputSelect>
+									</div>
+								</div>
+
 								<div class="input-style-1">
 									<label for="joineddate">Joined on</label>
 									<InputDate id="joineddate" class="form-control col-sm-8" @bind-Value="@Employee.JoinedDate" placeholder="Enter date joined"></InputDate>
@@ -129,21 +149,26 @@
 									<label for="comment">Comments</label>
 									<InputTextArea id="comment" class="form-control col-sm-8" @bind-Value="@Employee.Comment" placeholder="Enter comment" rows="5"></InputTextArea>
 								</div>
+								<ul class="buttons-group">
+									<li>
+										<button type="submit" class="main-btn success-btn rounded-md btn-hover" @onclick="ScrollToTop">Save Employee</button>
+									</li>
+									@if (Employee.EmployeeId > 0)
+									{
+										<li>
+											<button type="submit" class="main-btn danger-btn-outline rounded-md btn-hover" @onclick="@DeleteEmployee">Delete</button>
+										</li>
+									}
+									<li>
+										<button class="main-btn active-btn-outline rounded-md btn-hover" @onclick="@NavigateToOverview">Back to Overview</button>
+									</li>
+								</ul>
 							</div>
 							<!-- end card -->
 							<!-- ======= input style end ======= -->
 						</div>
 					</div>
 					<!-- end row -->
-
-					<button type="submit" class="btn btn-primary edit-btn">Save Employee</button>
-
-					@if (Employee.EmployeeId > 0)
-					{
-						<a class="btn btn-danger" @onclick="@DeleteEmployee">Delete</a>
-					}
-
-					<a class="btn btn-outline-primary" @onclick="@NavigateToOverview">Back to Overview</a>
 				</EditForm>
 			</div>
 			<!-- ========== form-elements-wrapper end ========== -->

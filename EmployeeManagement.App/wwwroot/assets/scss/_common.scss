@@ -103,7 +103,7 @@ p {
 
 .container {
   @media #{$xs} {
-    padding: 0 30px;
+	padding: 0 30px;
   }
 }
 
@@ -118,50 +118,50 @@ p {
   border-radius: 10px;
 
   @media #{$xs} {
-    padding: 20px;
+	padding: 20px;
   }
 
   .jvm-zoom-btn {
-    position: absolute;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
-    border: 1px solid $black-10;
-    right: 30px;
-    bottom: 30px;
-    cursor: pointer;
+	position: absolute;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	border: 1px solid $black-10;
+	right: 30px;
+	bottom: 30px;
+	cursor: pointer;
 
-    &.jvm-zoomin {
-      bottom: 70px;
-    }
+	&.jvm-zoomin {
+	  bottom: 70px;
+	}
   }
 
   .dropdown-toggle {
-    border: none;
-    background: none;
+	border: none;
+	background: none;
 
-    &::after {
-      display: none;
-    }
+	&::after {
+	  display: none;
+	}
   }
 
   .dropdown-menu {
-    @include box-shadow(0px 0px 5px rgba(0, 0, 0, 0.07));
+	@include box-shadow(0px 0px 5px rgba(0, 0, 0, 0.07));
 
-    li {
-      &:hover {
-        a {
-          color: $primary !important;
-        }
-      }
+	li {
+	  &:hover {
+		a {
+		  color: $primary !important;
+		}
+	  }
 
-      a {
-        display: block;
-        font-size: 14px;
-      }
-    }
+	  a {
+		display: block;
+		font-size: 14px;
+	  }
+	}
   }
 }
 
@@ -182,6 +182,7 @@ p {
   border-radius: 50%;
 }
 
+
 // scroll-top
 .scroll-top {
   width: 45px;
@@ -201,14 +202,14 @@ p {
   @include transition(0.3s);
 
   &:hover {
-    color: $white;
-    background: rgba($primary, 0.8);
+	color: $white;
+	background: rgba($primary, 0.8);
   }
 }
 
 .form-control {
   &:focus {
-    box-shadow: none;
+	box-shadow: none;
   }
 }
 

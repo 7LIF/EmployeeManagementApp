@@ -27,6 +27,7 @@ namespace EmployeeManagement.Api
 
 			services.AddScoped<ICountryRepository, CountryRepository>();
 			services.AddScoped<IJobCategoryRepository, JobCategoryRepository>();
+			services.AddScoped<IOfficeRepository, OfficeRepository>();
 			services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
 			services.AddCors(options =>
