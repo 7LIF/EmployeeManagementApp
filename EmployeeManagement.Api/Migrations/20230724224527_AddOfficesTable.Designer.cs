@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagement.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230725012314_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230724224527_AddOfficesTable")]
+    partial class AddOfficesTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

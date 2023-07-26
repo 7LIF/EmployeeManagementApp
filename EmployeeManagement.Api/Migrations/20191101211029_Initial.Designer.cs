@@ -259,66 +259,6 @@ namespace EmployeeManagement.Api.Migrations
                         });
                 });
 
-                modelBuilder.Entity("EmployeeManagement.Shared.Office", b =>
-                {
-                    b.Property<int>("OfficeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OfficeId"));
-
-                    b.Property<double>("OfficeLatitude")
-                        .HasColumnType("float");
-
-                    b.Property<double>("OfficeLongitude")
-                        .HasColumnType("float");
-
-                    b.Property<string>("OfficeName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("OfficeId");
-
-                    b.ToTable("Offices");
-
-                    b.HasData(
-                        new
-                        {
-                            OfficeId = 1,
-                            OfficeLatitude = 40.748389143217913,
-                            OfficeLongitude = -73.985921912007811,
-                            OfficeName = "Company Headquarters - New York"
-                        },
-                        new
-                        {
-                            OfficeId = 2,
-                            OfficeLatitude = 33.736252666893208,
-                            OfficeLongitude = -84.409577686448841,
-                            OfficeName = "Office 1 - Atlanta"
-                        },
-                        new
-                        {
-                            OfficeId = 3,
-                            OfficeLatitude = 51.508111031504846,
-                            OfficeLongitude = -0.12336713332934048,
-                            OfficeName = "Office 2 - London"
-                        },
-                        new
-                        {
-                            OfficeId = 4,
-                            OfficeLatitude = 38.742361381016686,
-                            OfficeLongitude = -9.1452582659131956,
-                            OfficeName = "Office 4 - Lisbon"
-                        },
-                        new
-                        {
-                            OfficeId = 5,
-                            OfficeLatitude = 40.0,
-                            OfficeLongitude = -40.0,
-                            OfficeName = "Remote Office"
-                        });
-                });
-
             modelBuilder.Entity("EmployeeManagement.Shared.Employee", b =>
                 {
                     b.HasOne("EmployeeManagement.Shared.Country", "Country")
@@ -330,11 +270,6 @@ namespace EmployeeManagement.Api.Migrations
                     b.HasOne("EmployeeManagement.Shared.JobCategory", "JobCategory")
                         .WithMany()
                         .HasForeignKey("JobCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                    b.HasOne("EmployeeManagement.Shared.Office", "Office")
-                        .WithMany()
-                        .HasForeignKey("OfficeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
